@@ -37,12 +37,13 @@ library StoryGameTypes {
         uint256 id;
         uint256 storyId;
         uint256 chapterNumber;
-        string contentHash; // IPFS hash
+        string contentHash; // Short content hash / legacy
+        string ipfsHash;    // Full IPFS CID for off-chain storage
         address author;
         uint256 votes;
         bool isWinner;
         uint256 timestamp;
-        bytes32 contentHashBytes; // For duplicate detection
+        bytes32 contentHashBytes; // Duplicate detection
     }
     
     // Vote structure

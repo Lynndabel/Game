@@ -25,20 +25,10 @@ contract ContentValidator is Ownable {
      * @return true if OK, false if any banned word is found.
      */
     function validateContent(string calldata _content) external view returns (bool) {
-        // *** NOTE ***  extremely naive implementation – splits only by space.
-        bytes memory raw = bytes(_content);
-        bytes memory buffer;
-        for (uint256 i = 0; i < raw.length; i++) {
-            byte b = raw[i];
-            if (b == 0x20 /* space */) {
-                if (_isBanned(buffer)) return false;
-                delete buffer;
-            } else {
-                buffer.push(b);
-            }
+        // Naive implementation: check entire string hash against banned list.
+        if (bannedWords[keccak256(_toLower(bytes(_content)))]) {
+            return false;
         }
-        // last word
-        if (_isBanned(buffer)) return false;
         return true;
     }
 
