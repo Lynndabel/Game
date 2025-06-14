@@ -536,6 +536,31 @@ contract ChapterManager is Ownable, ReentrancyGuard, Pausable {
         _unpause();
     }
 
+    // --------------------------------------------------
+    // Controller-only setters for VotingEngine
+    // --------------------------------------------------
+    function updateChapterVotes(uint256 _chapterId, uint256 _newVoteCount)
+        external
+        onlyController
+        validChapter(_chapterId)
+    {
+        chapters[_chapterId].votes = _newVoteCount;
+    }
+
+    function markChapterAsWinner(uint256 _chapterId)
+        external
+        onlyController
+        validChapter(_chapterId)
+    {
+        StoryGameTypes.Chapter storage ch = chapters[_chapterId];
+        ch.isWinner = true;
+        emit ChapterMarkedAsWinner(_chapterId, ch.storyId);
+    }
+
+    function resetChapterProposals(uint256 _storyId) external onlyController validStory(_storyId) {
+        delete chapterProposals[_storyId];
+    }
+
     // Internal Functions
 
     /**
