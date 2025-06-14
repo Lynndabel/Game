@@ -9,7 +9,7 @@ library StoryGameErrors {
     error TransferFailed();
     error ContractPaused();
     error ZeroAddress();
-    
+
     // === Story Errors ===
     error StoryNotFound();
     error StoryAlreadyExists();
@@ -23,7 +23,7 @@ library StoryGameErrors {
     error StoryNotActive();
     error OnlyCreator();
     error InsufficientChapters();
-    
+
     // === Chapter Errors ===
     error ChapterNotFound();
     error InvalidChapterLength();
@@ -33,7 +33,7 @@ library StoryGameErrors {
     error MaxProposalsReached();
     error SubmissionCooldownActive();
     error InvalidChapterNumber();
-    
+
     // === Voting Errors ===
     error VotingNotActive();
     error VotingEnded();
@@ -44,7 +44,7 @@ library StoryGameErrors {
     error NoProposals();
     error VotingStillActive();
     error InvalidVoteWeight();
-    
+
     // === Content Validation Errors ===
     error ProhibitedContent();
     error ContentTooShort();
@@ -52,7 +52,7 @@ library StoryGameErrors {
     error InvalidContentHash();
     error ContentHashExists();
     error BannedWordDetected();
-    
+
     // === Reward Errors ===
     error NoRewardsToDistribute();
     error RewardCalculationFailed();
@@ -60,25 +60,25 @@ library StoryGameErrors {
     error RefundFailed();
     error InsufficientTreasuryFunds();
     error InvalidRewardPercentage();
-    
+
     // === NFT Errors ===
     error TokenNotFound();
     error InvalidTokenURI();
     error MintingFailed();
     error NotTokenOwner();
-    
+
     // === Fee Errors ===
     error InsufficientVotingFee();
     error InsufficientSubmissionFee();
     error InvalidFeeAmount();
     error FeeCalculationError();
-    
+
     // === Time-based Error ===
     error DeadlineNotReached();
     error DeadlinePassed();
     error InvalidTimeframe();
     error TooEarlyToFinalize();
-    
+
     // === Access Control Errors ===
     error OnlyController();
     error OnlyRegistry();
@@ -87,7 +87,7 @@ library StoryGameErrors {
     error OnlyValidator();
     error OnlyChapterManager();
     error ContractNotAuthorized();
-    
+
     // === System Errors ===
     error SystemNotInitialized();
     error InvalidConfiguration();
