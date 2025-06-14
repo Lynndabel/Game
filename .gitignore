@@ -12,3 +12,7 @@ docs/
 
 # Dotenv file
 .env
+
+.prettierrc/
+
+node_modules/
