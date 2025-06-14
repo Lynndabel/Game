@@ -30,6 +30,14 @@ contract RewardDistributor is Ownable, ReentrancyGuard {
     event Payout(uint256 indexed storyId, uint256 winnerReward, uint256 creatorReward);
     event RefundClaimed(uint256 indexed storyId, address indexed voter, uint256 amount);
 
+    // --------------------------------------------------
+    // internal transfer helper (2300 gas)
+    // --------------------------------------------------
+    function _safeTransfer(address _recipient, uint256 _amount) internal {
+        (bool success, ) = payable(_recipient).call{value: _amount, gas: 2300}("");
+        if (!success) revert StoryGameErrors.TransferFailed();
+    }
+
     constructor(address _registry, address _controller) {
         require(_registry != address(0) && _controller != address(0), "zero addr");
         registry = StoryRegistry(_registry);
@@ -59,10 +67,8 @@ contract RewardDistributor is Ownable, ReentrancyGuard {
         uint256 creatorShare = (_totalReward * 20) / 100;
         uint256 treasuryShare = _totalReward - winnerShare - creatorShare;
         treasuryBalance += treasuryShare;
-        (bool s1, ) = _winner.call{value: winnerShare}("");
-        if (!s1) revert StoryGameErrors.TransferFailed();
-        (bool s2, ) = _creator.call{value: creatorShare}("");
-        if (!s2) revert StoryGameErrors.TransferFailed();
+        _safeTransfer(_winner, winnerShare);
+        _safeTransfer(_creator, creatorShare);
         emit Payout(_storyId, winnerShare, creatorShare);
     }
 
@@ -79,16 +85,14 @@ contract RewardDistributor is Ownable, ReentrancyGuard {
         require(abandonedStoryRewards[_storyId] >= contrib, "insufficient pool");
         voterContributions[_storyId][msg.sender] = 0;
         abandonedStoryRewards[_storyId] -= contrib;
-        (bool ok, ) = msg.sender.call{value: contrib}("");
-        if (!ok) revert StoryGameErrors.TransferFailed();
+        _safeTransfer(msg.sender, contrib);
         emit RefundClaimed(_storyId, msg.sender, contrib);
     }
 
     function withdrawTreasury(uint256 _amount) external onlyOwner {
         require(_amount <= treasuryBalance, "exceeds");
         treasuryBalance -= _amount;
-        (bool ok, ) = owner().call{value: _amount}("");
-        if (!ok) revert StoryGameErrors.TransferFailed();
+        _safeTransfer(owner(), _amount);
     }
 
     // fallback
