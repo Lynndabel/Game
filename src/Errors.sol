@@ -73,7 +73,7 @@ library StoryGameErrors {
     error InvalidFeeAmount();
     error FeeCalculationError();
     
-    // === Time-based Errors ===
+    // === Time-based Error ===
     error DeadlineNotReached();
     error DeadlinePassed();
     error InvalidTimeframe();
