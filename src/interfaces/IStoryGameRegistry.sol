@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "../StoryGameTypes.sol";
+import "../contract/StoryGameTypes.sol";
 
 interface IStoryGameRegistry {
     using StoryGameTypes for *;
