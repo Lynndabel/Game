@@ -166,3 +166,5 @@ Story.sol updates chapter sequence
 - Compressed metadata storage
 - Event-based state reconstruction
 - Merkle tree voting for large communities
+
+## https://www.hackquest.io/hackathons/Tech-Fairness-Hackathon
