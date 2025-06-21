@@ -6,7 +6,7 @@ import "../interface/IRevenueDistributor.sol";
 import "../libraries/StoryMath.sol";
 import "../error/AccessErrors.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 contract RevenueDistributor is IRevenueDistributor, AccessControl, ReentrancyGuard {
     bytes32 public constant REVENUE_ADMIN_ROLE = keccak256("REVENUE_ADMIN_ROLE");

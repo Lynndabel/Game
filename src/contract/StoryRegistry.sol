@@ -5,7 +5,7 @@ import "../interface/IStoryRegistry.sol";
 import "../error/StoryErrors.sol";
 import "../error/AccessErrors.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 contract StoryRegistry is IStoryRegistry, AccessControl, ReentrancyGuard {
     bytes32 public constant STORY_MANAGER_ROLE = keccak256("STORY_MANAGER_ROLE");

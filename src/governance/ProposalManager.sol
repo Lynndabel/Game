@@ -5,7 +5,7 @@ import "../interface/IProposalManager.sol";
 import "../error/StoryErrors.sol";
 import "../error/AccessErrors.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 contract ProposalManager is IProposalManager, AccessControl, ReentrancyGuard {
     bytes32 public constant PROPOSAL_ADMIN_ROLE = keccak256("PROPOSAL_ADMIN_ROLE");

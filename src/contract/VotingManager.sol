@@ -6,7 +6,7 @@ import "../interface/IStoryGovernance.sol";
 import "../error/VotingErrors.sol";
 import "../libraries/QuadraticVoting.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract VotingManager is IVotingManager, AccessControl, ReentrancyGuard {
