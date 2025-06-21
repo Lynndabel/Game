@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "../errors/AccessErrors.sol";
+import "../error/AccessErrors.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract AccessManager is AccessControl {
