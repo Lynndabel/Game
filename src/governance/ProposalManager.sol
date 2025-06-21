@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import "../interface/IProposalManager.sol";
 import "../error/StoryErrors.sol";
-import "../errors/AccessErrors.sol";
+import "../error/AccessErrors.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
