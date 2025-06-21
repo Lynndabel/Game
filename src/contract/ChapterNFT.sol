@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "./interface/IChapterNFT.sol";
-import "./error/StoryErrors.sol";
-import "./error/AccessErrors.sol";
+import "../interface/IChapterNFT.sol";
+import "../error/AccessErrors.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
