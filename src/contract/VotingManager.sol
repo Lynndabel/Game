@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "../interfaces/IVotingManager.sol";
-import "../interfaces/IStoryGovernance.sol";
-import "../errors/VotingErrors.sol";
+import "../interface/IVotingManager.sol";
+import "../interface/IStoryGovernance.sol";
+import "../error/VotingErrors.sol";
 import "../libraries/QuadraticVoting.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
